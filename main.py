@@ -1,4 +1,6 @@
+import os
 
+path = os.getcwd()
 
 """
 ------------------------------------------------------------------------------
@@ -36,9 +38,9 @@ def opentable(filename):
     reader = csv.reader(f)
     return list(reader)
 
-anum = dict(opentable("/content/drive/MyDrive/table1.csv"))
+anum = dict(opentable(path + "/table1.csv"))
 
-amass = [float(x[0]) for x in opentable("/content/drive/MyDrive/table2.csv")]
+amass = [float(x[0]) for x in opentable(path + "/table2.csv")]
 
 print(anum)
 print(amass)
