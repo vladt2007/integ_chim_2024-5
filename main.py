@@ -70,11 +70,11 @@ def nbr_particules(element, charge, nbr_atomes):
 
   # neutrons
   if amass[int(anum[element])] == -1.0:
-    return "Nombre(s) d'electrons: " + str(int(electrons))+ "\n"+ "Nombre(s) de protons: "+ str(int(protons))+"\n"+"Nombre(s) de neutrons: "+ "MASSE ATOMIQUE INDÉFINIE (NOMBRE DE NEUTRONS INCALCULABLE)"
+    return "Nombre(s) d'electrons: " + str(electrons)+ "\n"+ "Nombre(s) de protons: "+ str(protons)+"\n"+"Nombre(s) de neutrons: "+ "MASSE ATOMIQUE INDÉFINIE (NOMBRE DE NEUTRONS INCALCULABLE)"
 
   else:
     neutrons = ((round(amass[int(anum[element])], 0) - (int(anum[element])))) * nbr_atomes
-    return "Nombre(s) d'electrons: " + str(int(electrons))+ "\n"+ "Nombre(s) de protons: "+ str(int(protons))+"\n"+"Nombre(s) de neutrons: "+ str(int(neutrons))
+    return "Nombre(s) d'electrons: " + str(electrons)+ "\n"+ "Nombre(s) de protons: "+ str(protons)+"\n"+"Nombre(s) de neutrons: "+ str(neutrons)
 
 
 
@@ -89,6 +89,8 @@ while True:
   charge_atomique = input("Entrez la charge de l'atome (entrez le symbole - ou + avant le chiffre): " )
   try:
     charge_atomique = int(charge_atomique)
+    if charge_atomique > int(anum[atome]):
+      raise ValueError
     break
 
   except ValueError:
